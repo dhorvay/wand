@@ -9,7 +9,103 @@
         "type": "git",
         "url": "https://github.com/digital-magick/wand.git"
     },
-    "scripts": {},
-    "dependencies": {},
-    "devDependencies": {}
+    "scripts": {
+        "ng": "ng",
+        "start": "ng serve",
+        "build": "ng build",
+        "test": "ng test",
+        "lint": "ng lint",
+        "e2e": "ng e2e",
+        "commit": "git-cz",
+        "prettier": "prettier --write \"**/*.ts\"",
+        "semantic-release": "semantic-release"
+    },
+    "dependencies": {
+        "@angular/animations": "~9.1.0",
+        "@angular/common": "~9.1.0",
+        "@angular/compiler": "~9.1.0",
+        "@angular/core": "~9.1.0",
+        "@angular/forms": "~9.1.0",
+        "@angular/platform-browser": "~9.1.0",
+        "@angular/platform-browser-dynamic": "~9.1.0",
+        "@angular/router": "~9.1.0",
+        "rxjs": "~6.5.4",
+        "semantic-release": "^17.0.4",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.10.2"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "~0.901.0",
+        "@angular-devkit/build-ng-packagr": "~0.901.0",
+        "@angular/cli": "~9.1.0",
+        "@angular/compiler-cli": "~9.1.0",
+        "@angular/language-service": "~9.1.0",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@semantic-release/changelog": "^5.0.1",
+        "@semantic-release/git": "^9.0.0",
+        "@types/jasmine": "~3.5.0",
+        "@types/jasminewd2": "~2.0.3",
+        "@types/node": "^12.11.1",
+        "codelyzer": "^5.1.2",
+        "commitizen": "^4.0.3",
+        "cz-conventional-changelog": "^3.1.0",
+        "husky": "^4.2.3",
+        "jasmine-core": "~3.5.0",
+        "jasmine-spec-reporter": "~4.2.1",
+        "karma": "~4.4.1",
+        "karma-chrome-launcher": "~3.1.0",
+        "karma-coverage-istanbul-reporter": "~2.1.0",
+        "karma-jasmine": "~3.0.1",
+        "karma-jasmine-html-reporter": "^1.4.2",
+        "lint-staged": "^10.1.2",
+        "ng-packagr": "^9.0.0",
+        "prettier": "^2.0.4",
+        "protractor": "~5.4.3",
+        "ts-node": "~8.3.0",
+        "tslint": "~6.1.0",
+        "typescript": "~3.8.3"
+    },
+    "release": {
+        "prepare": [
+            "@semantic-release/changelog",
+            "@semantic-release/npm",
+            {
+                "path": "@semantic-release/git",
+                "assets": [
+                    "package.json",
+                    "package-lock.json",
+                    "CHANGELOG.md"
+                ],
+                "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+            }
+        ],
+        "plugins": [
+            "@semantic-release/commit-analyzer",
+            "@semantic-release/release-notes-generator",
+            [
+                "@semantic-release/npm",
+                {
+                    "npmPublish": false
+                }
+            ],
+            "@semantic-release/github"
+        ]
+    },
+    "lint-staged": {
+        "*.{ts,js,css,json,md}": [
+            "prettier --write"
+        ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    }
 }
