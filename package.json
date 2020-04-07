@@ -1,6 +1,6 @@
 {
     "name": "wand",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Screenshot capturing component for Angular.",
     "private": true,
     "author": "Devin C. Horvay <devin.c.horvay@gmail.com>",
