@@ -1,0 +1,15 @@
+{
+    "name": "wand",
+    "version": "0.0.0",
+    "description": "Screenshot capturing component for Angular.",
+    "private": true,
+    "author": "Devin C. Horvay <devin.c.horvay@gmail.com>",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/digital-magick/wand.git"
+    },
+    "scripts": {},
+    "dependencies": {},
+    "devDependencies": {}
+}
